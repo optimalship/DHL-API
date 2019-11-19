@@ -111,6 +111,16 @@ class ExportLineItem extends Base
             'required' => false,
             'subobject' => false,
         ), 
+        'ManufactureCountryCode' => array(
+            'type' => 'string',
+            'required' => false,
+            'subobject' => false,
+        ), 
+        'ManufactureCountryName' => array(
+            'type' => 'CountryName',
+            'required' => false,
+            'subobject' => false,
+        ), 
         'LicenseSymbol' => array(
             'type' => 'LicenseNumber',
             'required' => false,
