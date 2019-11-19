@@ -86,7 +86,7 @@ class ExportLineItem extends Base
             'required' => false,
             'subobject' => false,
             'comment' => 'Commodity codes for shipment type',
-            'minLength' => '1',
+            'minLength' => '0',
             'maxLength' => '20',
         ), 
         'ScheduleB' => array(
@@ -112,7 +112,7 @@ class ExportLineItem extends Base
             'subobject' => false,
         ), 
         'ManufactureCountryCode' => array(
-            'type' => 'string',
+            'type' => '',
             'required' => false,
             'subobject' => false,
         ), 

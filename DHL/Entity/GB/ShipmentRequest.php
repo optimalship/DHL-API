@@ -171,6 +171,18 @@ class ShipmentRequest extends Base
             'required' => false,
             'subobject' => true,
         ), 
+        'UseDHLInvoice' => array(
+            'type' => 'string',
+            'required' => false,
+            'subobject' => false,
+            'enumeration' => 'Y,N',
+        ),
+        'DHLInvoiceType' => array(
+            'type' => 'string',
+            'required' => false,
+            'subobject' => false,
+            'enumeration' => 'CMI, PFI',
+        ),
         'LabelImageFormat' => array(
             'type' => 'string',
             'required' => false,
@@ -195,5 +207,6 @@ class ShipmentRequest extends Base
             'required' => false,
             'subobject' => true,
         ), 
+        
     );
 }

@@ -222,10 +222,11 @@ abstract class Base
             $key .= 's';
         }
 
-        if (!array_key_exists($key, $this->_values))
-        {
-            throw new \InvalidArgumentException('Field : ' . $key . ' is not defined for ' . get_class($this));
-        }
+        /** M Ward - removed this 5/3/19 */
+        // if (!array_key_exists($key, $this->_values))
+        // {
+        //     throw new \InvalidArgumentException('Field : ' . $key . ' is not defined for ' . get_class($this));
+        // }
 
         if (empty($arguments) && count($arguments) > 1) 
         {
@@ -285,11 +286,12 @@ abstract class Base
      * @throws \InvalidArgumentException Throws exception if key is not valid
      */
     final public function __set($key, $value) 
-    {
-        if (!array_key_exists($key, $this->_values))
-        {
-            throw new \InvalidArgumentException('Field : ' . $key . ' is not defined for ' . get_class($this));
-        }
+    {   
+        /** M Ward disabled 5/3/19 */
+        // if (!array_key_exists($key, $this->_values))
+        // {
+        //     throw new \InvalidArgumentException('Field : ' . $key . ' is not defined for ' . get_class($this));
+        // }
 
         $this->validateParameterType($key, $value);
         $this->validateParameterValue($key, $value);
