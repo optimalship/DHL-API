@@ -35,13 +35,13 @@ class Web
      * Url to services
      * @var string
      */
-    private $_stagingUrl = 'https://xmlpitest-ea.dhl.com/XMLShippingServlet?isUTF8Support=true';
+    private $_stagingUrl = 'https://xmlpitest-ea.dhl.com/XMLShippingServlet';
 
     /**
      * Url to services
      * @var string
      */
-    private $_productionUrl = 'https://xmlpi-ea.dhl.com/XMLShippingServlet?isUTF8Support=true';
+    private $_productionUrl = 'https://xmlpi-ea.dhl.com/XMLShippingServlet';
 
     /**
      * Use production server or staging
@@ -54,12 +54,19 @@ class Web
      * 
      * @var string $mode Mode can be either production or staging
      */
-    public function __construct($mode = 'staging')
+    public function __construct($mode = 'staging', $enableUtf8Support = true)
     {
         if (!in_array($mode, array('staging', 'production'))) 
         {
             throw new \InvalidArgumentException('Invalid mode : ' . $mode . '. Accepted values are : staging or production.');
         }
+
+        if ($enableUtf8Support)
+        {
+            $this->_stagingUrl .=  "?isUTF8Support=true";
+            $this->_productionUrl .=  "?isUTF8Support=true";
+        }
+
         $this->_mode = $mode;
     }
 
