@@ -207,6 +207,5 @@ class ShipmentRequest extends Base
             'required' => false,
             'subobject' => true,
         ), 
-        
     );
 }
