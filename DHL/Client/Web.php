@@ -54,12 +54,19 @@ class Web
      * 
      * @var string $mode Mode can be either production or staging
      */
-    public function __construct($mode = 'staging')
+    public function __construct($mode = 'staging', $enableUtf8Support = true)
     {
         if (!in_array($mode, array('staging', 'production'))) 
         {
             throw new \InvalidArgumentException('Invalid mode : ' . $mode . '. Accepted values are : staging or production.');
         }
+
+        if ($enableUtf8Support)
+        {
+            $this->_stagingUrl .=  "?isUTF8Support=true";
+            $this->_productionUrl .=  "?isUTF8Support=true";
+        }
+
         $this->_mode = $mode;
     }
 
